@@ -1,14 +1,29 @@
-# Welcome to your CDK TypeScript project!
+# AWS CDK 写経
 
-This is a blank project for TypeScript development with CDK.
+## はじめに
+[AWS CDK チュートリアル](https://intro-to-cdk.workshop.aws) の写経です
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## 動かし方
+### 1. clone直後にやること
+```shell
+cd <本リポジトリをcloneした場所>
+npm ci
+```
 
-## Useful commands
-
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+### 2. デプロイ
+```shell
+cdk deploy
+# 一定時間経過後、リソースが作られる
+# 成功したら、以下のようにAPI GatewayのURLが表示される
+# Outputs:
+# CdkWorkshopStack.apiEndpoint9349E63C = <API GatewayのURL>
+```
+## 3. 動作確認
+1. ブラウザで以下にアクセス
+```url
+https://<API GatewayのURL>/I can't stop thinking about stuff and my sleep is terrible
+```
+2. ブラウザに以下のようなメッセージが表示される。(メッセージは毎回変わる)
+```
+{"You":"I can't stop thinking about stuff and my sleep is terrible","ELIZA":"You say you can't stop thinking about stuff and my sleep is terrible ?"}
+```
